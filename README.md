@@ -1,9 +1,8 @@
 # Offloaded Kyber on ESP8266
 
-This repository contains the source code developed for a master's thesis on
-local and offloaded execution of Kyber on ESP8266 devices using MQTT.
+This repository contains the source code developed for a master's thesis on local and offloaded execution of Kyber on ESP8266 devices using MQTT.
 
-## Project structure
+## Project Structure
 
 - `single-node`: Local execution on one ESP8266 node
 - `mainnode`: Main node of the offloaded implementation
@@ -20,26 +19,32 @@ local and offloaded execution of Kyber on ESP8266 devices using MQTT.
 
 ## Configuration
 
-Before compiling the distributed nodes, replace the following values in each
-`.ino` file:
+Before compiling the distributed nodes, replace the Wi-Fi credentials in each `.ino` file:
 
 ```cpp
 static const char* WIFI_SSID = "YOUR_WIFI_NAME";
 static const char* WIFI_PASS = "YOUR_WIFI_PASSWORD";
-Replace MQTT_HOST with the IP address of the device running the MQTT broker.
+```
 
-## Execution order
-Start the MQTT broker.
-Upload the helper1 code to the first ESP8266.
-Upload the helper2 code to the second ESP8266.
-Upload the mainnode code to the main ESP8266.
-Open the serial monitor at 115200 baud.
+Replace `MQTT_HOST` with the IP address of the device running the MQTT broker:
 
-## Single-node execution
+```cpp
+IPAddress MQTT_HOST(192, 168, 1, 102);
+static const uint16_t MQTT_PORT = 1883;
+```
 
-Upload the code inside the single-node directory to one ESP8266 board.
+## Execution Order
+
+1. Start the MQTT broker.
+2. Upload the `helper1` code to the first ESP8266.
+3. Upload the `helper2` code to the second ESP8266.
+4. Upload the `mainnode` code to the main ESP8266.
+5. Open the serial monitor at 115200 baud.
+
+## Single-Node Execution
+
+Upload the code inside the `single-node` directory to one ESP8266 board.
 
 ## Notice
 
-This implementation was developed for academic experimentation and performance
-evaluation. It has not undergone an independent security audit.
+This implementation was developed for academic experimentation and performance evaluation. It has not undergone an independent security audit.
