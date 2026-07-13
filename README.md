@@ -26,3 +26,20 @@ Before compiling the distributed nodes, replace the following values in each
 ```cpp
 static const char* WIFI_SSID = "YOUR_WIFI_NAME";
 static const char* WIFI_PASS = "YOUR_WIFI_PASSWORD";
+Replace MQTT_HOST with the IP address of the device running the MQTT broker.
+
+## Execution order
+Start the MQTT broker.
+Upload the helper1 code to the first ESP8266.
+Upload the helper2 code to the second ESP8266.
+Upload the mainnode code to the main ESP8266.
+Open the serial monitor at 115200 baud.
+
+## Single-node execution
+
+Upload the code inside the single-node directory to one ESP8266 board.
+
+## Notice
+
+This implementation was developed for academic experimentation and performance
+evaluation. It has not undergone an independent security audit.
